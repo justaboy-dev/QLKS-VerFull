@@ -207,7 +207,7 @@ namespace QUANLYKHACHSAN
                 info.pName = context.CHI_TIET_PHIEU_THUE_PHONG.Where(p => p.MaThuePhong.Equals(maThuePhong)).Select(p => p.HoTenKhachHang).FirstOrDefault();
                 info.pDateFrom = context.CHI_TIET_PHIEU_THUE_PHONG.Where(p => p.MaThuePhong.Equals(maThuePhong)).Select(p => p.NgayNhan).FirstOrDefault();
                 info.pDateTo = context.CHI_TIET_PHIEU_THUE_PHONG.Where(p => p.MaThuePhong.Equals(maThuePhong)).Select(p => p.NgayTra).FirstOrDefault();
-                info.pTienPhong = double.Parse(context.HOA_DON.Where(p=>p.MaThuePhong.Equals(maThuePhong)).Select(p=>p.TongTien).FirstOrDefault().ToString());
+                info.pTienPhong = double.Parse(context.CHI_TIET_HOA_DON.Where(p=>p.MaThuePhong.Equals(maThuePhong)).Select(p=>p.TienPhong).FirstOrDefault().ToString());
 
                 FormReport.ReportPhieuThue Frm = new FormReport.ReportPhieuThue(info);
                 Frm.DataSource = context.DANH_SACH_SU_DUNG_DICH_VU.Join
