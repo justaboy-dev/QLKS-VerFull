@@ -199,6 +199,11 @@ namespace QUANLYKHACHSAN
         {
             try
             {
+                HOA_DON hd = context.HOA_DON.FirstOrDefault(p => p.MaThuePhong == maThuePhong);
+                if (hd == null)
+                {
+                    throw new Exception("Phiếu thuê này chưa thanh toán");
+                }
                 if (maThuePhong.Equals(string.Empty))
                     throw new Exception("Vui lòng chọn phiếu thuê cần xuất");
                 ClassReport.ReportInfo info = new ClassReport.ReportInfo();

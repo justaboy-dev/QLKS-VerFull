@@ -58,6 +58,23 @@ namespace QUANLYKHACHSAN
             return result;
         }
 
+        //Check ten trung "Dieu hoa" == "dieu     hoa"
+        public bool checkName(String name)
+        {
+            string temp = RemoveVietnameseTone(name.Trim());
+
+            string newString = Regex.Replace(temp, @"\s+", "");
+
+            foreach (var p in context.DICH_VU.ToList())
+            {
+                if (Regex.Replace(RemoveVietnameseTone(p.TenDichVu.Trim()), @"\s+", "") == newString)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void icoBtnThem_Click(object sender, EventArgs e)
         {
             if (txtMadichvu.Text == "" || txtTendichvu.Text == "" || txtDongia.Text == "")
@@ -73,12 +90,21 @@ namespace QUANLYKHACHSAN
                 }
                 else
                 {
-                    DICH_VU newDV = new DICH_VU() { MaDichVu = RemoveVietnameseTone(txtMadichvu.Text.ToUpper()).ToUpper(), TenDichVu = txtTendichvu.Text, DonViTinh = cboDonvitinh.Text, DonGia = Double.Parse(txtDongia.Text) };
-                    context.DICH_VU.Add(newDV);
-                    context.SaveChanges();
-                    MessageBox.Show(" Thêm thành công!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadData();
-                    clearTXT();
+                    bool isExist = checkName(txtTendichvu.Text);
+                    if (isExist == false)
+                    {
+                        DICH_VU newDV = new DICH_VU() { MaDichVu = RemoveVietnameseTone(txtMadichvu.Text.ToUpper()).ToUpper(), TenDichVu = txtTendichvu.Text, DonViTinh = cboDonvitinh.Text, DonGia = Double.Parse(txtDongia.Text) };
+                        context.DICH_VU.Add(newDV);
+                        context.SaveChanges();
+                        MessageBox.Show(" Thêm thành công!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadData();
+                        clearTXT();
+                    }else
+                    {
+                        MessageBox.Show(" Đã tồn tại tên dịch vụ!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    
                 }
             }
         }
@@ -116,13 +142,21 @@ namespace QUANLYKHACHSAN
                 DICH_VU dv = context.DICH_VU.FirstOrDefault(p => p.MaDichVu.ToLower() == txtMadichvu.Text.ToLower());
                 if (dv != null)
                 {
-                    dv.TenDichVu = txtTendichvu.Text;
-                    dv.DonGia = Double.Parse(txtDongia.Text);
-                    dv.DonViTinh = cboDonvitinh.Text;
-                    MessageBox.Show("Sửa thành công!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    context.SaveChanges();
-                    loadData();
-                    clearTXT();
+                    bool isExist = checkName(txtTendichvu.Text);
+                    if (isExist == false)
+                    {
+                        dv.TenDichVu = txtTendichvu.Text;
+                        dv.DonGia = Double.Parse(txtDongia.Text);
+                        dv.DonViTinh = cboDonvitinh.Text;
+                        MessageBox.Show("Sửa thành công!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        context.SaveChanges();
+                        loadData();
+                        clearTXT();
+                    }else
+                    {
+                        MessageBox.Show(" Đã tồn tại tên dịch vụ!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                 }
                 else
                 {
@@ -174,6 +208,14 @@ namespace QUANLYKHACHSAN
         private void txtTendichvu_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+            if (txtTendichvu.Text.ToString().Trim().Length > 45)
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
         }
 
         private void icoBtnXuatDichVu_Click(object sender, EventArgs e)

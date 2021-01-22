@@ -34,6 +34,7 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.iconCapNhatKM = new FontAwesome.Sharp.IconButton();
             this.txtGhichu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboTinhtrang = new System.Windows.Forms.ComboBox();
@@ -62,6 +63,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.iconCapNhatKM);
             this.groupBox1.Controls.Add(this.txtGhichu);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cboTinhtrang);
@@ -76,6 +78,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN PHÒNG";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // iconCapNhatKM
+            // 
+            this.iconCapNhatKM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconCapNhatKM.FlatAppearance.BorderSize = 0;
+            this.iconCapNhatKM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconCapNhatKM.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconCapNhatKM.ForeColor = System.Drawing.Color.DarkGreen;
+            this.iconCapNhatKM.IconChar = FontAwesome.Sharp.IconChar.Safari;
+            this.iconCapNhatKM.IconColor = System.Drawing.Color.DarkGreen;
+            this.iconCapNhatKM.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconCapNhatKM.IconSize = 35;
+            this.iconCapNhatKM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconCapNhatKM.Location = new System.Drawing.Point(74, 352);
+            this.iconCapNhatKM.Margin = new System.Windows.Forms.Padding(4);
+            this.iconCapNhatKM.Name = "iconCapNhatKM";
+            this.iconCapNhatKM.Size = new System.Drawing.Size(141, 45);
+            this.iconCapNhatKM.TabIndex = 13;
+            this.iconCapNhatKM.Text = "Cập nhật KM";
+            this.iconCapNhatKM.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconCapNhatKM.UseVisualStyleBackColor = true;
+            this.iconCapNhatKM.Click += new System.EventHandler(this.iconCapNhatKM_Click);
             // 
             // txtGhichu
             // 
@@ -351,5 +375,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colGhiChu;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton iconCapNhatKM;
     }
 }
