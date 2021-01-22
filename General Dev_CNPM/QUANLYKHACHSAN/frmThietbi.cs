@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QUANLYKHACHSAN.Model;
+using System.Text.RegularExpressions;
 
 namespace QUANLYKHACHSAN
 {
@@ -63,6 +64,37 @@ namespace QUANLYKHACHSAN
             capNhat();
         }
 
+        //bo dau tieng viet
+
+        public static string RemoveVietnameseTone(string text)
+        {
+            string result = text.ToLower();
+            result = Regex.Replace(result, "à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|/g", "a");
+            result = Regex.Replace(result, "è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|/g", "e");
+            result = Regex.Replace(result, "ì|í|ị|ỉ|ĩ|/g", "i");
+            result = Regex.Replace(result, "ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|/g", "o");
+            result = Regex.Replace(result, "ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|/g", "u");
+            result = Regex.Replace(result, "ỳ|ý|ỵ|ỷ|ỹ|/g", "y");
+            result = Regex.Replace(result, "đ", "d");
+            return result;
+        }
+        //Check ten trung "Dieu hoa" == "dieu     hoa"
+        public bool checkName(String name)
+        {
+            string temp = RemoveVietnameseTone(name.Trim());
+
+            string newString = Regex.Replace(temp, @"\s+", "");
+
+            foreach (var  p in context.THIET_BI.ToList())
+            {
+                if(Regex.Replace(RemoveVietnameseTone(p.TenThietBi.Trim()), @"\s+", "") == newString)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void icoBtnThem_Click(object sender, EventArgs e)
         {
             if (txtTenthietbi.Text == "" || txtSoluong.Text == "")
@@ -72,8 +104,8 @@ namespace QUANLYKHACHSAN
             else
             {
                 THIET_BI tb = getLastTB();
-                THIET_BI isExits = context.THIET_BI.FirstOrDefault(p=>p.TenThietBi.ToLower() == txtTenthietbi.Text.Trim().ToLower());
-                if (isExits == null)
+                bool isExits = checkName(txtTenthietbi.Text);
+                if (isExits == false)
                 {
                     if (tb == null)
                     {
@@ -125,12 +157,21 @@ namespace QUANLYKHACHSAN
             if (maTbGlobal != "")
             {
                 THIET_BI tb = context.THIET_BI.FirstOrDefault(p => p.MaThietBi.Equals(maTbGlobal));
-                tb.TenThietBi = txtTenthietbi.Text.Trim();
-                tb.SoLuong = txtSoluong.Text == "" ? 0 : int.Parse(txtSoluong.Text);
-                context.SaveChanges();
-                loadData();
-                clearTxt();
-                MessageBox.Show("Sửa thành công!", "Thông báo");
+
+                bool isExits = checkName(txtTenthietbi.Text);
+                if (isExits == false)
+                {
+                    tb.TenThietBi = txtTenthietbi.Text.Trim();
+                    tb.SoLuong = txtSoluong.Text == "" ? 0 : int.Parse(txtSoluong.Text);
+                    context.SaveChanges();
+                    loadData();
+                    clearTxt();
+                    MessageBox.Show("Sửa thành công!", "Thông báo");
+                }else
+                {
+                    MessageBox.Show("Đã tồn tại tên thiết bị!", "Thông báo");
+                }
+                
             }
             else
             {
@@ -189,6 +230,19 @@ namespace QUANLYKHACHSAN
             Frm.DataSource = context.THIET_BI.ToList();
             frmReportViewer Rpv = new frmReportViewer(Frm);
             Rpv.ShowDialog();
+        }
+
+        private void txtTenthietbi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+            if(txtTenthietbi.Text.ToString().Trim().Length > 45)
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
         }
     }
 }

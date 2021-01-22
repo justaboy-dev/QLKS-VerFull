@@ -180,5 +180,12 @@ namespace QUANLYKHACHSAN
                 }
             }
         }
+
+        private void iconCapNhatKM_Click(object sender, EventArgs e)
+        {
+            frmCapNhatKM frm = new frmCapNhatKM();
+            frm.ShowDialog();
+            loadData();
+        }
     }
 }

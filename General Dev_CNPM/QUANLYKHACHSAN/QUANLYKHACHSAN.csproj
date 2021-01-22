@@ -151,6 +151,12 @@
     <Compile Include="FormReport\ReportThietBi.Designer.cs">
       <DependentUpon>ReportThietBi.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCapNhatKM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCapNhatKM.Designer.cs">
+      <DependentUpon>frmCapNhatKM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangnhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReport\ReportThietBi.resx">
       <DependentUpon>ReportThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCapNhatKM.resx">
+      <DependentUpon>frmCapNhatKM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangnhap.resx">
       <DependentUpon>frmDangnhap.cs</DependentUpon>

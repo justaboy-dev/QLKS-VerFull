@@ -35,6 +35,8 @@ namespace QUANLYKHACHSAN.Model
 
         public int? Tang { get; set; }
 
+        public int? KhuyenMai { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHONG> PHONG { get; set; }
     }

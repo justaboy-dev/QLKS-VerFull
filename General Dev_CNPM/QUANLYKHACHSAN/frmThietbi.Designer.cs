@@ -159,6 +159,7 @@
             this.txtTenthietbi.Name = "txtTenthietbi";
             this.txtTenthietbi.Size = new System.Drawing.Size(239, 30);
             this.txtTenthietbi.TabIndex = 14;
+            this.txtTenthietbi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenthietbi_KeyPress);
             // 
             // label4
             // 
