@@ -45,34 +45,18 @@ namespace QUANLYKHACHSAN
             }else
             {
                 //Nếu mà khuyến mãi đã có và lớn hơn 0 thì vầy "1.000.000.00   đã giảm 50%" =>> giá gốc "2.000.000"
-                if (Double.Parse(loaiPhong.KhuyenMai.ToString()) != 0)
-                {
-                    /*
+                
                     Double donGia = Double.Parse(loaiPhong.DonGia.ToString());
-                    Double tienGoc = (donGia * 100) / Double.Parse(loaiPhong.KhuyenMai.ToString());
+                    Double tienGoc = (donGia * 100) / Double.Parse((100-loaiPhong.KhuyenMai).ToString());
 
                     MessageBox.Show(tienGoc.ToString());
 
-                    loaiPhong.KhuyenMai = int.Parse(txtTile.Text);
-                    loaiPhong.DonGia = tienGoc - ((tienGoc * int.Parse(txtTile.Text)) / 100);
-                    context.SaveChanges();
+                   loaiPhong.KhuyenMai = int.Parse(txtTile.Text);
+                   loaiPhong.DonGia = tienGoc - ((tienGoc * int.Parse(txtTile.Text)) / 100);
+                   context.SaveChanges();
                     MessageBox.Show("Cập nhật thành công!");
-                    txtTile.Clear();
-                    loadData();
-                    */
-                }else
-                {
-                    /*
-                    loaiPhong.KhuyenMai = int.Parse(txtTile.Text);
-                    loaiPhong.DonGia = loaiPhong.DonGia - ((loaiPhong.DonGia * int.Parse(txtTile.Text)) / 100);
-                    context.SaveChanges();
-                    MessageBox.Show("Cập nhật thành công!");
-                    txtTile.Clear();
-                    loadData();
-                    */
-                }
-                
-                
+                   txtTile.Clear();
+                   loadData();
             }
 
         }
