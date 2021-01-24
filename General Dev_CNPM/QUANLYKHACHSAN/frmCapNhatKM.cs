@@ -49,8 +49,6 @@ namespace QUANLYKHACHSAN
                     Double donGia = Double.Parse(loaiPhong.DonGia.ToString());
                     Double tienGoc = (donGia * 100) / Double.Parse((100-loaiPhong.KhuyenMai).ToString());
 
-                    MessageBox.Show(tienGoc.ToString());
-
                    loaiPhong.KhuyenMai = int.Parse(txtTile.Text);
                    loaiPhong.DonGia = tienGoc - ((tienGoc * int.Parse(txtTile.Text)) / 100);
                    context.SaveChanges();
