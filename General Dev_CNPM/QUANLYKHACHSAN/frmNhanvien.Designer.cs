@@ -45,7 +45,6 @@
             this.colNgaySinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGioiTinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiaChi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboChucvu = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -162,8 +161,7 @@
             this.colHoTen,
             this.colNgaySinh,
             this.colGioiTinh,
-            this.colDiaChi,
-            this.colGhiChu});
+            this.colDiaChi});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControlNhanVien;
             this.gridView1.GroupPanelText = " ";
@@ -234,19 +232,6 @@
             this.colDiaChi.Visible = true;
             this.colDiaChi.VisibleIndex = 4;
             this.colDiaChi.Width = 143;
-            // 
-            // colGhiChu
-            // 
-            this.colGhiChu.Caption = "Ghi chú";
-            this.colGhiChu.FieldName = "GhiChu";
-            this.colGhiChu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colGhiChu.ImageOptions.Image")));
-            this.colGhiChu.MinWidth = 19;
-            this.colGhiChu.Name = "colGhiChu";
-            this.colGhiChu.OptionsColumn.AllowEdit = false;
-            this.colGhiChu.OptionsColumn.ReadOnly = true;
-            this.colGhiChu.Visible = true;
-            this.colGhiChu.VisibleIndex = 5;
-            this.colGhiChu.Width = 160;
             // 
             // groupBox1
             // 
@@ -439,7 +424,6 @@
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraGrid.Columns.GridColumn colMaNhanVien;
         private FontAwesome.Sharp.IconButton icoBtnThem;
-        private DevExpress.XtraGrid.Columns.GridColumn colGhiChu;
         private System.ComponentModel.BackgroundWorker backgroundWorker3;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;

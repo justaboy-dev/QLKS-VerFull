@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QUANLYKHACHSAN.Model;
+using System.Text.RegularExpressions;
 
 namespace QUANLYKHACHSAN
 {
@@ -118,7 +119,7 @@ namespace QUANLYKHACHSAN
 
         private void icoBtnThem_Click(object sender, EventArgs e)
         {
-            if (txtHoten.Text == "" || txtDiachi.Text == "" || txtSDT.Text == "")
+            if (Regex.Replace(txtDiachi.Text, @"\s+", "") == "" || Regex.Replace(txtHoten.Text, @"\s+", "") == "" || Regex.Replace(txtSDT.Text, @"\s+", "") == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -137,7 +138,7 @@ namespace QUANLYKHACHSAN
 
                         if (nv == null)
                         {
-                            NHAN_VIEN newNV = new NHAN_VIEN() { MaNhanVien = "NV001", HoTen = txtHoten.Text, ChucVu = cboChucvu.Text, GioiTinh = cboGioitinh.Text, DiaChi = txtDiachi.Text, NgaySinh = DateTime.Parse(dateTimePicker1.Text), SoDienThoai = txtSDT.Text, MaChucVu = cboChucvu.SelectedValue.ToString() };
+                            NHAN_VIEN newNV = new NHAN_VIEN() { MaNhanVien = "NV001", HoTen = txtHoten.Text.Trim(), ChucVu = cboChucvu.Text, GioiTinh = cboGioitinh.Text, DiaChi = txtDiachi.Text, NgaySinh = DateTime.Parse(dateTimePicker1.Text), SoDienThoai = txtSDT.Text, MaChucVu = cboChucvu.SelectedValue.ToString() };
 
                             context.NHAN_VIEN.Add(newNV);
                             context.SaveChanges();
@@ -149,7 +150,7 @@ namespace QUANLYKHACHSAN
                             string sttCuoi = nv.MaNhanVien.Replace("NV", "").ToString();
                             string maMoi = convertNumbtoID(sttCuoi);
 
-                            NHAN_VIEN newNV = new NHAN_VIEN() { MaNhanVien = maMoi, HoTen = txtHoten.Text, ChucVu = cboChucvu.Text, GioiTinh = cboGioitinh.Text, DiaChi = txtDiachi.Text, NgaySinh = DateTime.Parse(dateTimePicker1.Text), SoDienThoai = txtSDT.Text, MaChucVu = cboChucvu.SelectedValue.ToString() };
+                            NHAN_VIEN newNV = new NHAN_VIEN() { MaNhanVien = maMoi, HoTen = txtHoten.Text.Trim(), ChucVu = cboChucvu.Text, GioiTinh = cboGioitinh.Text, DiaChi = txtDiachi.Text, NgaySinh = DateTime.Parse(dateTimePicker1.Text), SoDienThoai = txtSDT.Text, MaChucVu = cboChucvu.SelectedValue.ToString() };
 
                             context.NHAN_VIEN.Add(newNV);
                             context.SaveChanges();
@@ -190,7 +191,7 @@ namespace QUANLYKHACHSAN
             }
             else
             {
-                if (txtHoten.Text == "" || txtDiachi.Text == "" || txtSDT.Text == "")
+                if (Regex.Replace(txtDiachi.Text, @"\s+", "") == "" || Regex.Replace(txtHoten.Text, @"\s+", "") == "" || Regex.Replace(txtSDT.Text, @"\s+", "") == "")
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

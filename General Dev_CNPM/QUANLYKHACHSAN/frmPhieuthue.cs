@@ -35,7 +35,13 @@ namespace QUANLYKHACHSAN
                 //tinh so ngay
                 CHI_TIET_PHIEU_THUE_PHONG ctTP = context.CHI_TIET_PHIEU_THUE_PHONG.FirstOrDefault(p => p.MaThuePhong == pt.MaThuePhong);
                 Double milTime = DateTime.Parse(ctTP.NgayTraDuKien.ToString()).Day - DateTime.Parse(ctTP.NgayNhan.ToString()).Day + 1;
-                txtSoNgay.Text = milTime.ToString() + " ngày";
+                if (milTime < 0)
+                {
+                    milTime = 30 - (milTime * -1);
+                }
+                {
+                    txtSoNgay.Text = milTime.ToString() + " ngày";
+                }
             }
         }
 
