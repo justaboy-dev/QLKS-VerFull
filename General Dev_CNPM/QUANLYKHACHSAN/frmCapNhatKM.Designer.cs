@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCapNhatKM));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.iconbtnHuy = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.icoBtnCapNhat = new FontAwesome.Sharp.IconButton();
             this.txtTile = new System.Windows.Forms.TextBox();
@@ -41,10 +42,9 @@
             this.colTenLoaiPhong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaLoaiPhong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colKhuyenMai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlPhong = new DevExpress.XtraGrid.GridControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.iconbtnHuy = new FontAwesome.Sharp.IconButton();
-            this.colKhuyenMai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPhong)).BeginInit();
@@ -68,6 +68,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cập nhật KM";
             // 
+            // iconbtnHuy
+            // 
+            this.iconbtnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconbtnHuy.FlatAppearance.BorderSize = 0;
+            this.iconbtnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconbtnHuy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconbtnHuy.ForeColor = System.Drawing.Color.Red;
+            this.iconbtnHuy.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.iconbtnHuy.IconColor = System.Drawing.Color.Red;
+            this.iconbtnHuy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconbtnHuy.IconSize = 32;
+            this.iconbtnHuy.Location = new System.Drawing.Point(185, 366);
+            this.iconbtnHuy.Margin = new System.Windows.Forms.Padding(2);
+            this.iconbtnHuy.Name = "iconbtnHuy";
+            this.iconbtnHuy.Size = new System.Drawing.Size(104, 35);
+            this.iconbtnHuy.TabIndex = 27;
+            this.iconbtnHuy.Text = "Hủy";
+            this.iconbtnHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconbtnHuy.UseVisualStyleBackColor = true;
+            this.iconbtnHuy.Click += new System.EventHandler(this.iconbtnHuy_Click);
+            // 
             // iconButton2
             // 
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
@@ -83,17 +104,24 @@
             // 
             // icoBtnCapNhat
             // 
-            this.icoBtnCapNhat.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnCapNhat.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.icoBtnCapNhat.IconColor = System.Drawing.Color.Black;
+            this.icoBtnCapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.icoBtnCapNhat.BackColor = System.Drawing.Color.Transparent;
+            this.icoBtnCapNhat.FlatAppearance.BorderSize = 0;
+            this.icoBtnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icoBtnCapNhat.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnCapNhat.ForeColor = System.Drawing.Color.DarkGreen;
+            this.icoBtnCapNhat.IconChar = FontAwesome.Sharp.IconChar.Gift;
+            this.icoBtnCapNhat.IconColor = System.Drawing.Color.DarkGreen;
             this.icoBtnCapNhat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoBtnCapNhat.IconSize = 32;
             this.icoBtnCapNhat.Location = new System.Drawing.Point(20, 366);
             this.icoBtnCapNhat.Margin = new System.Windows.Forms.Padding(2);
             this.icoBtnCapNhat.Name = "icoBtnCapNhat";
-            this.icoBtnCapNhat.Size = new System.Drawing.Size(104, 35);
+            this.icoBtnCapNhat.Size = new System.Drawing.Size(140, 35);
             this.icoBtnCapNhat.TabIndex = 25;
             this.icoBtnCapNhat.Text = "Cập nhật";
-            this.icoBtnCapNhat.UseVisualStyleBackColor = true;
+            this.icoBtnCapNhat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icoBtnCapNhat.UseVisualStyleBackColor = false;
             this.icoBtnCapNhat.Click += new System.EventHandler(this.icoBtnCapNhat_Click);
             // 
             // txtTile
@@ -202,6 +230,15 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
+            // colKhuyenMai
+            // 
+            this.colKhuyenMai.Caption = "KM";
+            this.colKhuyenMai.FieldName = "KhuyenMai";
+            this.colKhuyenMai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("colKhuyenMai.ImageOptions.SvgImage")));
+            this.colKhuyenMai.Name = "colKhuyenMai";
+            this.colKhuyenMai.Visible = true;
+            this.colKhuyenMai.VisibleIndex = 4;
+            // 
             // gridControlPhong
             // 
             this.gridControlPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -216,30 +253,6 @@
             this.gridControlPhong.TabIndex = 10;
             this.gridControlPhong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // iconbtnHuy
-            // 
-            this.iconbtnHuy.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconbtnHuy.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconbtnHuy.IconColor = System.Drawing.Color.Black;
-            this.iconbtnHuy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconbtnHuy.Location = new System.Drawing.Point(185, 366);
-            this.iconbtnHuy.Margin = new System.Windows.Forms.Padding(2);
-            this.iconbtnHuy.Name = "iconbtnHuy";
-            this.iconbtnHuy.Size = new System.Drawing.Size(104, 35);
-            this.iconbtnHuy.TabIndex = 27;
-            this.iconbtnHuy.Text = "Hủy";
-            this.iconbtnHuy.UseVisualStyleBackColor = true;
-            this.iconbtnHuy.Click += new System.EventHandler(this.iconbtnHuy_Click);
-            // 
-            // colKhuyenMai
-            // 
-            this.colKhuyenMai.Caption = "KM";
-            this.colKhuyenMai.FieldName = "KhuyenMai";
-            this.colKhuyenMai.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("colKhuyenMai.ImageOptions.SvgImage")));
-            this.colKhuyenMai.Name = "colKhuyenMai";
-            this.colKhuyenMai.Visible = true;
-            this.colKhuyenMai.VisibleIndex = 4;
             // 
             // frmCapNhatKM
             // 

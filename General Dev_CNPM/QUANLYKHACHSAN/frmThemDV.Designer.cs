@@ -145,16 +145,17 @@
             // 
             // iconPictureBox1
             // 
+            this.iconPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconPictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.StoreAlt;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 50;
-            this.iconPictureBox1.Location = new System.Drawing.Point(9, 320);
+            this.iconPictureBox1.IconSize = 58;
+            this.iconPictureBox1.Location = new System.Drawing.Point(13, 316);
             this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(53, 50);
+            this.iconPictureBox1.Size = new System.Drawing.Size(53, 54);
             this.iconPictureBox1.TabIndex = 48;
             this.iconPictureBox1.TabStop = false;
             // 
@@ -189,10 +190,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(63, 320);
+            this.label13.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(62, 312);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(96, 19);
+            this.label13.Size = new System.Drawing.Size(113, 23);
             this.label13.TabIndex = 47;
             this.label13.Text = "Tổng Cộng";
             // 
@@ -206,7 +207,7 @@
             this.txtTongcong.Multiline = true;
             this.txtTongcong.Name = "txtTongcong";
             this.txtTongcong.ReadOnly = true;
-            this.txtTongcong.Size = new System.Drawing.Size(153, 27);
+            this.txtTongcong.Size = new System.Drawing.Size(174, 27);
             this.txtTongcong.TabIndex = 46;
             // 
             // txtSoLuong

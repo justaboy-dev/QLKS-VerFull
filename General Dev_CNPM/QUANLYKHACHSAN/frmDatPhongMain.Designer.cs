@@ -160,17 +160,21 @@
             // 
             // icoBtnTimphong
             // 
+            this.icoBtnTimphong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.icoBtnTimphong.Enabled = false;
             this.icoBtnTimphong.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoBtnTimphong.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.icoBtnTimphong.ForeColor = System.Drawing.Color.Black;
+            this.icoBtnTimphong.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.icoBtnTimphong.IconColor = System.Drawing.Color.Black;
             this.icoBtnTimphong.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoBtnTimphong.Location = new System.Drawing.Point(100, 382);
+            this.icoBtnTimphong.IconSize = 35;
+            this.icoBtnTimphong.Location = new System.Drawing.Point(80, 377);
             this.icoBtnTimphong.Margin = new System.Windows.Forms.Padding(2);
             this.icoBtnTimphong.Name = "icoBtnTimphong";
-            this.icoBtnTimphong.Size = new System.Drawing.Size(104, 35);
+            this.icoBtnTimphong.Size = new System.Drawing.Size(172, 35);
             this.icoBtnTimphong.TabIndex = 25;
             this.icoBtnTimphong.Text = "Tìm Phòng ";
+            this.icoBtnTimphong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoBtnTimphong.UseVisualStyleBackColor = true;
             this.icoBtnTimphong.Click += new System.EventHandler(this.icoBtnTimphong_Click);
             // 
