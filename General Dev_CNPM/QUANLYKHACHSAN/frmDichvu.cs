@@ -77,7 +77,7 @@ namespace QUANLYKHACHSAN
 
         private void icoBtnThem_Click(object sender, EventArgs e)
         {
-            if (txtMadichvu.Text == "" || txtTendichvu.Text == "" || txtDongia.Text == "")
+            if (Regex.Replace(txtMadichvu.Text, @"\s+", "") == "" || Regex.Replace(txtTendichvu.Text, @"\s+", "") == "" || Regex.Replace(txtDongia.Text, @"\s+", "") == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -93,7 +93,7 @@ namespace QUANLYKHACHSAN
                     bool isExist = checkName(txtTendichvu.Text);
                     if (isExist == false)
                     {
-                        DICH_VU newDV = new DICH_VU() { MaDichVu = RemoveVietnameseTone(txtMadichvu.Text.ToUpper()).ToUpper(), TenDichVu = txtTendichvu.Text, DonViTinh = cboDonvitinh.Text, DonGia = Double.Parse(txtDongia.Text) };
+                        DICH_VU newDV = new DICH_VU() { MaDichVu = RemoveVietnameseTone(txtMadichvu.Text.ToUpper()).ToUpper(), TenDichVu = txtTendichvu.Text.Trim(), DonViTinh = cboDonvitinh.Text, DonGia = Double.Parse(txtDongia.Text) };
                         context.DICH_VU.Add(newDV);
                         context.SaveChanges();
                         MessageBox.Show(" Thêm thành công!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -133,7 +133,7 @@ namespace QUANLYKHACHSAN
 
         private void icoBtnSua_Click(object sender, EventArgs e)
         {
-            if (txtMadichvu.Text == "" || txtTendichvu.Text == "" || txtDongia.Text == "")
+            if (Regex.Replace(txtMadichvu.Text, @"\s+", "") == "" || Regex.Replace(txtTendichvu.Text, @"\s+", "") == "" || Regex.Replace(txtDongia.Text, @"\s+", "") == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -145,7 +145,7 @@ namespace QUANLYKHACHSAN
                     bool isExist = checkName(txtTendichvu.Text);
                     if (isExist == false)
                     {
-                        dv.TenDichVu = txtTendichvu.Text;
+                        dv.TenDichVu = txtTendichvu.Text.Trim();
                         dv.DonGia = Double.Parse(txtDongia.Text);
                         dv.DonViTinh = cboDonvitinh.Text;
                         MessageBox.Show("Sửa thành công!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
