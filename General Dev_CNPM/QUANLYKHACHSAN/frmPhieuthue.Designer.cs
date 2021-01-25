@@ -194,7 +194,7 @@
             this.icoBtnTraphong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.icoBtnTraphong.Location = new System.Drawing.Point(838, 24);
             this.icoBtnTraphong.Name = "icoBtnTraphong";
-            this.icoBtnTraphong.Size = new System.Drawing.Size(130, 32);
+            this.icoBtnTraphong.Size = new System.Drawing.Size(146, 32);
             this.icoBtnTraphong.TabIndex = 42;
             this.icoBtnTraphong.Text = "Trả Phòng";
             this.icoBtnTraphong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -213,9 +213,9 @@
             this.icoBtnInphieuthue.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnInphieuthue.IconSize = 35;
             this.icoBtnInphieuthue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icoBtnInphieuthue.Location = new System.Drawing.Point(674, 24);
+            this.icoBtnInphieuthue.Location = new System.Drawing.Point(653, 24);
             this.icoBtnInphieuthue.Name = "icoBtnInphieuthue";
-            this.icoBtnInphieuthue.Size = new System.Drawing.Size(158, 32);
+            this.icoBtnInphieuthue.Size = new System.Drawing.Size(179, 32);
             this.icoBtnInphieuthue.TabIndex = 41;
             this.icoBtnInphieuthue.Text = "Xuất Phiếu Thuê";
             this.icoBtnInphieuthue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -266,7 +266,10 @@
             // 
             // icoBtnThemdichvu
             // 
-            this.icoBtnThemdichvu.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
+            this.icoBtnThemdichvu.FlatAppearance.BorderSize = 0;
+            this.icoBtnThemdichvu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icoBtnThemdichvu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoBtnThemdichvu.IconChar = FontAwesome.Sharp.IconChar.ConciergeBell;
             this.icoBtnThemdichvu.IconColor = System.Drawing.Color.Black;
             this.icoBtnThemdichvu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icoBtnThemdichvu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -323,19 +326,18 @@
             // iconBtnDatPhong
             // 
             this.iconBtnDatPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconBtnDatPhong.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.iconBtnDatPhong.BackColor = System.Drawing.Color.Red;
             this.iconBtnDatPhong.FlatAppearance.BorderSize = 0;
             this.iconBtnDatPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconBtnDatPhong.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconBtnDatPhong.ForeColor = System.Drawing.Color.Black;
-            this.iconBtnDatPhong.IconChar = FontAwesome.Sharp.IconChar.SadCry;
-            this.iconBtnDatPhong.IconColor = System.Drawing.Color.Black;
+            this.iconBtnDatPhong.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconBtnDatPhong.ForeColor = System.Drawing.Color.White;
+            this.iconBtnDatPhong.IconChar = FontAwesome.Sharp.IconChar.CartArrowDown;
+            this.iconBtnDatPhong.IconColor = System.Drawing.Color.White;
             this.iconBtnDatPhong.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconBtnDatPhong.IconSize = 35;
             this.iconBtnDatPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconBtnDatPhong.Location = new System.Drawing.Point(847, 30);
+            this.iconBtnDatPhong.Location = new System.Drawing.Point(732, 30);
             this.iconBtnDatPhong.Name = "iconBtnDatPhong";
-            this.iconBtnDatPhong.Size = new System.Drawing.Size(137, 55);
+            this.iconBtnDatPhong.Size = new System.Drawing.Size(188, 47);
             this.iconBtnDatPhong.TabIndex = 43;
             this.iconBtnDatPhong.Text = "Đặt Phòng";
             this.iconBtnDatPhong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
