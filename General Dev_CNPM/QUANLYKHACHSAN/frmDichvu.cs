@@ -103,8 +103,6 @@ namespace QUANLYKHACHSAN
                     {
                         MessageBox.Show(" Đã tồn tại tên dịch vụ!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    
                 }
             }
         }
@@ -152,11 +150,19 @@ namespace QUANLYKHACHSAN
                         context.SaveChanges();
                         loadData();
                         clearTXT();
+                    }else if (Regex.Replace(RemoveVietnameseTone(dv.TenDichVu.Trim()), @"\s+", "") == Regex.Replace(RemoveVietnameseTone(txtTendichvu.Text.Trim()), @"\s+", ""))
+                    {
+                        dv.TenDichVu = txtTendichvu.Text.Trim();
+                        dv.DonGia = Double.Parse(txtDongia.Text);
+                        dv.DonViTinh = cboDonvitinh.Text;
+                        MessageBox.Show("Sửa thành công!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        context.SaveChanges();
+                        loadData();
+                        clearTXT();
                     }else
                     {
                         MessageBox.Show(" Đã tồn tại tên dịch vụ!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    
                 }
                 else
                 {

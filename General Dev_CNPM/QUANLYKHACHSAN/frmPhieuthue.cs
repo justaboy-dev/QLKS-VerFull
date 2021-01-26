@@ -35,13 +35,10 @@ namespace QUANLYKHACHSAN
                 //tinh so ngay
                 CHI_TIET_PHIEU_THUE_PHONG ctTP = context.CHI_TIET_PHIEU_THUE_PHONG.FirstOrDefault(p => p.MaThuePhong == pt.MaThuePhong);
                 Double milTime = DateTime.Parse(ctTP.NgayTraDuKien.ToString()).Day - DateTime.Parse(ctTP.NgayNhan.ToString()).Day + 1;
-                if (milTime < 0)
-                {
-                    milTime = 30 - (milTime * -1);
-                }
-                {
-                    txtSoNgay.Text = milTime.ToString() + " ngày";
-                }
+                Double month = DateTime.Parse(ctTP.NgayTraDuKien.ToString()).Month - DateTime.Parse(ctTP.NgayNhan.ToString()).Month;
+                Double year = DateTime.Parse(ctTP.NgayTraDuKien.ToString()).Year - DateTime.Parse(ctTP.NgayNhan.ToString()).Year;
+
+                txtSoNgay.Text = (milTime + 31*month + 365*year).ToString() + " ngày";
             }
         }
 
@@ -119,10 +116,13 @@ namespace QUANLYKHACHSAN
                         CHI_TIET_PHIEU_THUE_PHONG ctThuePhong = context.CHI_TIET_PHIEU_THUE_PHONG.FirstOrDefault(p => p.MaThuePhong == maThuePhong);
                         ctThuePhong.NgayTra = DateTime.Now;
                         context.SaveChanges();
-                        //So ngay - Fix different month and year
-                        DateTime timeden = DateTime.Parse(ctThuePhong.NgayNhan.ToString());
-                        DateTime timedi = DateTime.Parse(ctThuePhong.NgayTra.ToString());
-                        double dayTime = Math.Floor(double.Parse(timedi.Subtract(timeden).TotalDays.ToString())) + 1;
+
+                        //tinh so ngay
+                        Double milTime = DateTime.Parse(ctThuePhong.NgayTraDuKien.ToString()).Day - DateTime.Parse(ctThuePhong.NgayNhan.ToString()).Day + 1;
+                        Double month = DateTime.Parse(ctThuePhong.NgayTraDuKien.ToString()).Month - DateTime.Parse(ctThuePhong.NgayNhan.ToString()).Month;
+                        Double year = DateTime.Parse(ctThuePhong.NgayTraDuKien.ToString()).Year - DateTime.Parse(ctThuePhong.NgayNhan.ToString()).Year;
+
+                        double dayTime = (milTime + 31 * month + 365 * year);
                         //Tien phong
                         PHONG phong = context.PHONG.FirstOrDefault(p => p.MaPhong == ctThuePhong.MaPhong);
                         LOAI_PHONG loaiPhong = context.LOAI_PHONG.FirstOrDefault(p => p.MaLoaiPhong == phong.MaLoaiPhong);
@@ -152,7 +152,6 @@ namespace QUANLYKHACHSAN
                         loadData();
                         //Tra phong xuat hoa don
 
-
                     }
                     else
                     {
@@ -164,10 +163,12 @@ namespace QUANLYKHACHSAN
                         CHI_TIET_PHIEU_THUE_PHONG ctThuePhong = context.CHI_TIET_PHIEU_THUE_PHONG.FirstOrDefault(p => p.MaThuePhong == maThuePhong);
                         ctThuePhong.NgayTra = DateTime.Now;
                         context.SaveChanges();
-                        //So ngay - Fix different month and year
-                        DateTime timeden = DateTime.Parse(ctThuePhong.NgayNhan.ToString());
-                        DateTime timedi = DateTime.Parse(ctThuePhong.NgayTra.ToString());
-                        double dayTime = Math.Floor(double.Parse(timedi.Subtract(timeden).TotalDays.ToString())) + 1;
+                        //tinh so ngay
+                        Double milTime = DateTime.Parse(ctThuePhong.NgayTraDuKien.ToString()).Day - DateTime.Parse(ctThuePhong.NgayNhan.ToString()).Day + 1;
+                        Double month = DateTime.Parse(ctThuePhong.NgayTraDuKien.ToString()).Month - DateTime.Parse(ctThuePhong.NgayNhan.ToString()).Month;
+                        Double year = DateTime.Parse(ctThuePhong.NgayTraDuKien.ToString()).Year - DateTime.Parse(ctThuePhong.NgayNhan.ToString()).Year;
+
+                        double dayTime = (milTime + 31 * month + 365 * year);
                         //Tien phong
                         PHONG phong = context.PHONG.FirstOrDefault(p => p.MaPhong == ctThuePhong.MaPhong);
                         LOAI_PHONG loaiPhong = context.LOAI_PHONG.FirstOrDefault(p => p.MaLoaiPhong == phong.MaLoaiPhong);

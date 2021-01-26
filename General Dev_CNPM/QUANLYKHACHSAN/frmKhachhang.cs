@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QUANLYKHACHSAN.Model;
+using System.Text.RegularExpressions;
 
 namespace QUANLYKHACHSAN
 {
@@ -131,7 +132,7 @@ namespace QUANLYKHACHSAN
         }
         private void icoBtnThem_Click(object sender, EventArgs e)
         {
-            if (txtHoten.Text == "" || txtDiachi.Text == "" || txtSDT.Text == "" || txtCMND.Text == "")
+            if (Regex.Replace(txtHoten.Text, @"\s+", "") == "" || Regex.Replace(txtDiachi.Text, @"\s+", "") == "" || Regex.Replace(txtCMND.Text, @"\s+", "") == "" || Regex.Replace(txtSDT.Text, @"\s+", "") == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -195,7 +196,7 @@ namespace QUANLYKHACHSAN
             }
             else
             {
-                if (txtHoten.Text == "" || txtDiachi.Text == "" || txtSDT.Text == "" || txtCMND.Text == "")
+                if (Regex.Replace(txtHoten.Text, @"\s+", "") == "" || Regex.Replace(txtDiachi.Text, @"\s+", "") == "" || Regex.Replace(txtCMND.Text, @"\s+", "") == "" || Regex.Replace(txtSDT.Text, @"\s+", "") == "")
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -207,17 +208,44 @@ namespace QUANLYKHACHSAN
                     }
                     else
                     {
-                        KHACH_HANG nv = context.KHACH_HANG.FirstOrDefault(p => p.MaKhachHang.Equals(maKhGlobal));
-                        nv.TenKhachHang = txtHoten.Text.Trim();
-                        nv.NgaySinh = DateTime.Parse(dateTimePicker1.Text);
-                        nv.DienThoai = txtSDT.Text;
-                        nv.GioiTinh = cboGioitinh.Text;
-                        nv.CMND = txtCMND.Text;
-                        nv.DiaChi = txtDiachi.Text;
+                        if (txtCMND.Text.Length == 9)
+                        {
+                            KHACH_HANG isExits = context.KHACH_HANG.FirstOrDefault(p => p.CMND == txtCMND.Text);
 
-                        context.SaveChanges();
-                        MessageBox.Show(" Sửa thành công!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadData();
+                            if (isExits == null)
+                            {
+                                KHACH_HANG nv = context.KHACH_HANG.FirstOrDefault(p => p.MaKhachHang.Equals(maKhGlobal));
+                                nv.TenKhachHang = txtHoten.Text.Trim();
+                                nv.NgaySinh = DateTime.Parse(dateTimePicker1.Text);
+                                nv.DienThoai = txtSDT.Text;
+                                nv.GioiTinh = cboGioitinh.Text;
+                                nv.CMND = txtCMND.Text;
+                                nv.DiaChi = txtDiachi.Text;
+
+                                context.SaveChanges();
+                                MessageBox.Show(" Sửa thành công!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                loadData();
+                            }else if(isExits.MaKhachHang == maKhGlobal)
+                            {
+                                KHACH_HANG nv = context.KHACH_HANG.FirstOrDefault(p => p.MaKhachHang.Equals(maKhGlobal));
+                                nv.TenKhachHang = txtHoten.Text.Trim();
+                                nv.NgaySinh = DateTime.Parse(dateTimePicker1.Text);
+                                nv.DienThoai = txtSDT.Text;
+                                nv.GioiTinh = cboGioitinh.Text;
+                                nv.CMND = txtCMND.Text;
+                                nv.DiaChi = txtDiachi.Text;
+
+                                context.SaveChanges();
+                                MessageBox.Show(" Sửa thành công!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }else
+                            {
+                                MessageBox.Show(" CMND đã tồn tại!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show(" CMND phải đủ 9 số!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
             }
