@@ -97,7 +97,7 @@ namespace QUANLYKHACHSAN
 
         private void icoBtnThem_Click(object sender, EventArgs e)
         {
-            if (txtTenthietbi.Text == "" || txtSoluong.Text == "")
+            if (Regex.Replace(txtTenthietbi.Text, @"\s+", "") == "" || Regex.Replace(txtSoluong.Text, @"\s+", "") == "")
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin", "Thông báo");
             }
@@ -157,21 +157,34 @@ namespace QUANLYKHACHSAN
             if (maTbGlobal != "")
             {
                 THIET_BI tb = context.THIET_BI.FirstOrDefault(p => p.MaThietBi.Equals(maTbGlobal));
-
-                bool isExits = checkName(txtTenthietbi.Text);
-                if (isExits == false)
+                if(Regex.Replace(txtTenthietbi.Text, @"\s+", "") == "" || Regex.Replace(txtSoluong.Text, @"\s+", "") == "")
                 {
-                    tb.TenThietBi = txtTenthietbi.Text.Trim();
-                    tb.SoLuong = txtSoluong.Text == "" ? 0 : int.Parse(txtSoluong.Text);
-                    context.SaveChanges();
-                    loadData();
-                    clearTxt();
-                    MessageBox.Show("Sửa thành công!", "Thông báo");
+                    MessageBox.Show("Vui lòng nhập đủ thông tin", "Thông báo");
                 }else
                 {
-                    MessageBox.Show("Đã tồn tại tên thiết bị!", "Thông báo");
+                    bool isExits = checkName(txtTenthietbi.Text);
+                    if (isExits == false)
+                    {
+                        tb.TenThietBi = txtTenthietbi.Text.Trim();
+                        tb.SoLuong = txtSoluong.Text == "" ? 0 : int.Parse(txtSoluong.Text);
+                        context.SaveChanges();
+                        loadData();
+                        clearTxt();
+                        MessageBox.Show("Sửa thành công!", "Thông báo");
+                    }else if(Regex.Replace(RemoveVietnameseTone(tb.TenThietBi.Trim()), @"\s+", "") == Regex.Replace(RemoveVietnameseTone(txtTenthietbi.Text.Trim()), @"\s+", ""))
+                    {
+                        tb.TenThietBi = txtTenthietbi.Text.Trim();
+                        tb.SoLuong = txtSoluong.Text == "" ? 0 : int.Parse(txtSoluong.Text);
+                        context.SaveChanges();
+                        loadData();
+                        clearTxt();
+                        MessageBox.Show("Sửa thành công!", "Thông báo");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã tồn tại tên thiết bị!", "Thông báo");
+                    }
                 }
-                
             }
             else
             {

@@ -138,7 +138,7 @@ namespace QUANLYKHACHSAN
                             {
                                 MaPhieuSua = maMoi,
                                 MaThietBi = cboMathietbi.SelectedValue.ToString(),
-                                PhiSuaChua = int.Parse(txtPhisuachua.Text)
+                                PhiSuaChua = long.Parse(txtPhisuachua.Text)
                             };
                             context.CHI_TIET_PHIEU_SUA_CHUA.Add(ctPS);
                             context.SaveChanges();
@@ -167,7 +167,7 @@ namespace QUANLYKHACHSAN
                             {
                                 MaPhieuSua = maMoi,
                                 MaThietBi = cboMathietbi.SelectedValue.ToString(),
-                                PhiSuaChua = int.Parse(txtPhisuachua.Text)
+                                PhiSuaChua = long.Parse(txtPhisuachua.Text)
                             };
                             context.CHI_TIET_PHIEU_SUA_CHUA.Add(ctPS);
                             context.SaveChanges();
@@ -215,7 +215,7 @@ namespace QUANLYKHACHSAN
 
                 CHI_TIET_PHIEU_SUA_CHUA ct = context.CHI_TIET_PHIEU_SUA_CHUA.FirstOrDefault(p=>p.MaPhieuSua == maPSGlobal);
 
-                ct.PhiSuaChua = int.Parse(txtPhisuachua.Text);
+                ct.PhiSuaChua = long.Parse(txtPhisuachua.Text);
 
 
                 PHONG phong = context.PHONG.FirstOrDefault(p => p.MaPhong == cboMaphong.SelectedValue.ToString());
