@@ -2206,7 +2206,6 @@ C:\Users\Admin\Documents\QLKS-VerFull\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\
 C:\Users\Admin\Documents\QLKS-VerFull\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.frmDatPhongMain.resources
 C:\Users\Admin\Documents\QLKS-VerFull\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.frmDichvu.resources
 C:\Users\Admin\Documents\QLKS-VerFull\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.frmDoanhthu.resources
-C:\Users\Admin\Documents\QLKS-VerFull\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.frmHuongdan.resources
 C:\Users\Admin\Documents\QLKS-VerFull\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.frmKhachhang.resources
 C:\Users\Admin\Documents\QLKS-VerFull\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.frmKhachhangthanthiet.resources
 C:\Users\Admin\Documents\QLKS-VerFull\General Dev_CNPM\QUANLYKHACHSAN\obj\Debug\QUANLYKHACHSAN.frmLienhe.resources

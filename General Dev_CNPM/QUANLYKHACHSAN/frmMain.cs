@@ -350,13 +350,6 @@ namespace QUANLYKHACHSAN
             loadForm(us);
         }
 
-        private void iconBtnHuongdan_Click(object sender, EventArgs e)
-        {
-            ActiveSubBtn(sender, RGBColor.color5);
-            UserControl us = new frmHuongdan();
-            loadForm(us);
-        }
-
         private void iconBtnNoiquy_Click(object sender, EventArgs e)
         {
             ActiveSubBtn(sender, RGBColor.color5);

@@ -175,12 +175,6 @@
     <Compile Include="frmDichvu.Designer.cs">
       <DependentUpon>frmDichvu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHuongdan.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="frmHuongdan.Designer.cs">
-      <DependentUpon>frmHuongdan.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmKhachhang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -331,9 +325,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoanhthu.resx">
       <DependentUpon>frmDoanhthu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmHuongdan.resx">
-      <DependentUpon>frmHuongdan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKhachhang.resx">
       <DependentUpon>frmKhachhang.cs</DependentUpon>
