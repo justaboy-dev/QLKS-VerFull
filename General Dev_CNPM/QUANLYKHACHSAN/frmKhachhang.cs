@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QUANLYKHACHSAN.Model;
+using System.Text.RegularExpressions;
 
 namespace QUANLYKHACHSAN
 {
@@ -131,7 +132,7 @@ namespace QUANLYKHACHSAN
         }
         private void icoBtnThem_Click(object sender, EventArgs e)
         {
-            if (txtHoten.Text == "" || txtDiachi.Text == "" || txtSDT.Text == "" || txtCMND.Text == "")
+            if (Regex.Replace(txtDiachi.Text, @"\s+", "") == "" || Regex.Replace(txtHoten.Text, @"\s+", "") == "" || Regex.Replace(txtSDT.Text, @"\s+", "") == "" || Regex.Replace(txtCMND.Text, @"\s+", "") == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -195,7 +196,7 @@ namespace QUANLYKHACHSAN
             }
             else
             {
-                if (txtHoten.Text == "" || txtDiachi.Text == "" || txtSDT.Text == "" || txtCMND.Text == "")
+                if (Regex.Replace(txtDiachi.Text, @"\s+", "") == "" || Regex.Replace(txtHoten.Text, @"\s+", "") == "" || Regex.Replace(txtSDT.Text, @"\s+", "") == "" || Regex.Replace(txtCMND.Text, @"\s+", "") == "")
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

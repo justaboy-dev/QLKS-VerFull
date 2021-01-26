@@ -97,7 +97,7 @@ namespace QUANLYKHACHSAN
 
         private void icoBtnThem_Click(object sender, EventArgs e)
         {
-            if (txtTenthietbi.Text == "" || txtSoluong.Text == "")
+            if (Regex.Replace(txtTenthietbi.Text, @"\s+", "") == "" || Regex.Replace(txtSoluong.Text, @"\s+", "") == "" )
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin", "Thông báo");
             }
@@ -161,6 +161,10 @@ namespace QUANLYKHACHSAN
                 bool isExits = checkName(txtTenthietbi.Text);
                 if (isExits == false)
                 {
+                    if (Regex.Replace(txtTenthietbi.Text, @"\s+", "") == "" || Regex.Replace(txtSoluong.Text, @"\s+", "") == "")
+                    {
+                        MessageBox.Show("Vui lòng nhập đủ thông tin", "Thông báo");
+                    }
                     tb.TenThietBi = txtTenthietbi.Text.Trim();
                     tb.SoLuong = txtSoluong.Text == "" ? 0 : int.Parse(txtSoluong.Text);
                     context.SaveChanges();
