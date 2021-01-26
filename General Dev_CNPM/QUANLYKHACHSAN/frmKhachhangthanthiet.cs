@@ -23,7 +23,7 @@ namespace QUANLYKHACHSAN
         {
             var constr  = ConfigurationManager.ConnectionStrings["QLKS_DB"].ConnectionString;
 
-            var cmdText = "select KH.MaKhachHang, KH.TenKhachHang, KH.DienThoai, COUNT(KH.MaKhachHang) as SoLuotDen, case when COUNT(KH.MaKhachHang) >= 8 then N'Kim cương' when COUNT(KH.MaKhachHang) >= 3 then N'Vàng' else N'Bạc' end as LoaiHoiVien, SUM(HD.TongTien) as TongHoaDon from KHACH_HANG KH, PHIEU_THUE_PHONG PTP, HOA_DON HD where KH.MaKhachHang = PTP.MaKhachHang And HD.MaThuePhong = PTP.MaThuePhong group by KH.MaKhachHang, KH.TenKhachHang, KH.DienThoai having COUNT(KH.MaKhachHang) >= 3";
+            var cmdText = "select KH.MaKhachHang, KH.TenKhachHang, KH.DienThoai, COUNT(KH.MaKhachHang) as SoLuotDen, case when COUNT(KH.MaKhachHang) >= 8 then N'Kim cương' when COUNT(KH.MaKhachHang) >= 5 then N'Vàng' else N'Bạc' end as LoaiHoiVien, SUM(HD.TongTien) as TongHoaDon from KHACH_HANG KH, PHIEU_THUE_PHONG PTP, HOA_DON HD where KH.MaKhachHang = PTP.MaKhachHang And HD.MaThuePhong = PTP.MaThuePhong group by KH.MaKhachHang, KH.TenKhachHang, KH.DienThoai having COUNT(KH.MaKhachHang) >= 3";
 
             SqlConnection con = new SqlConnection(constr);
             SqlCommand cmd = new SqlCommand(cmdText, con);
