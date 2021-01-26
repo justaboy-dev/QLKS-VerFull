@@ -68,8 +68,7 @@
             // 
             // lblTendangnhaphethong
             // 
-            this.lblTendangnhaphethong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTendangnhaphethong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTendangnhaphethong.AutoSize = true;
             this.lblTendangnhaphethong.BackColor = System.Drawing.Color.Transparent;
             this.lblTendangnhaphethong.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,8 +82,7 @@
             // 
             // lblMatkhauhethong
             // 
-            this.lblMatkhauhethong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMatkhauhethong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblMatkhauhethong.AutoSize = true;
             this.lblMatkhauhethong.BackColor = System.Drawing.Color.Transparent;
             this.lblMatkhauhethong.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,8 +96,7 @@
             // 
             // lblChucvu
             // 
-            this.lblChucvu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblChucvu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblChucvu.AutoSize = true;
             this.lblChucvu.BackColor = System.Drawing.Color.Transparent;
             this.lblChucvu.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,8 +110,7 @@
             // 
             // txtTendangnhaphethong
             // 
-            this.txtTendangnhaphethong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTendangnhaphethong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtTendangnhaphethong.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTendangnhaphethong.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTendangnhaphethong.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -125,8 +121,7 @@
             // 
             // txtMatkhauhethong
             // 
-            this.txtMatkhauhethong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMatkhauhethong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtMatkhauhethong.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatkhauhethong.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMatkhauhethong.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -137,8 +132,7 @@
             // 
             // cboChucvu
             // 
-            this.cboChucvu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboChucvu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cboChucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboChucvu.FormattingEnabled = true;
             this.cboChucvu.Location = new System.Drawing.Point(239, 107);
