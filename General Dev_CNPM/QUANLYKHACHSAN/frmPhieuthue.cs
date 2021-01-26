@@ -119,8 +119,10 @@ namespace QUANLYKHACHSAN
                         CHI_TIET_PHIEU_THUE_PHONG ctThuePhong = context.CHI_TIET_PHIEU_THUE_PHONG.FirstOrDefault(p => p.MaThuePhong == maThuePhong);
                         ctThuePhong.NgayTra = DateTime.Now;
                         context.SaveChanges();
-                        //So ngay
-                        double dayTime = DateTime.Parse(ctThuePhong.NgayTra.ToString()).Day - DateTime.Parse(ctThuePhong.NgayNhan.ToString()).Day + 1;
+                        //So ngay - Fix different month and year
+                        DateTime timeden = DateTime.Parse(ctThuePhong.NgayNhan.ToString());
+                        DateTime timedi = DateTime.Parse(ctThuePhong.NgayTra.ToString());
+                        double dayTime = Math.Floor(double.Parse(timedi.Subtract(timeden).TotalDays.ToString())) + 1;
                         //Tien phong
                         PHONG phong = context.PHONG.FirstOrDefault(p => p.MaPhong == ctThuePhong.MaPhong);
                         LOAI_PHONG loaiPhong = context.LOAI_PHONG.FirstOrDefault(p => p.MaLoaiPhong == phong.MaLoaiPhong);
@@ -162,8 +164,10 @@ namespace QUANLYKHACHSAN
                         CHI_TIET_PHIEU_THUE_PHONG ctThuePhong = context.CHI_TIET_PHIEU_THUE_PHONG.FirstOrDefault(p => p.MaThuePhong == maThuePhong);
                         ctThuePhong.NgayTra = DateTime.Now;
                         context.SaveChanges();
-                        //So ngay
-                        Double dayTime = DateTime.Parse(ctThuePhong.NgayTra.ToString()).Day - DateTime.Parse(ctThuePhong.NgayNhan.ToString()).Day + 1;
+                        //So ngay - Fix different month and year
+                        DateTime timeden = DateTime.Parse(ctThuePhong.NgayNhan.ToString());
+                        DateTime timedi = DateTime.Parse(ctThuePhong.NgayTra.ToString());
+                        double dayTime = Math.Floor(double.Parse(timedi.Subtract(timeden).TotalDays.ToString())) + 1;
                         //Tien phong
                         PHONG phong = context.PHONG.FirstOrDefault(p => p.MaPhong == ctThuePhong.MaPhong);
                         LOAI_PHONG loaiPhong = context.LOAI_PHONG.FirstOrDefault(p => p.MaLoaiPhong == phong.MaLoaiPhong);
